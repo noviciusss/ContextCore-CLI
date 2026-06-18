@@ -137,4 +137,22 @@ Thumbs.db
 *.sln
 *.sw?
 
-.pycache
+# Database storage, dumps, backups, and client config
+.dbclient/
+.dbclient.json
+dbclient.json
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+*.sqlite3-journal
+*.sqlite3-shm
+*.sqlite3-wal
+*.sql.gz
+*.sql.tar
+*.sql.bak
+*.dump
+*.backup
+*.rdb
+
+*.svg 

@@ -7,10 +7,9 @@ CREATE TABLE IF NOT EXISTS tasks (
     created_at TIMESTAMP DEFAULT NOW()
 );
 
-CREATE TABLE IF NOT EXISTS notes(
+CREATE TABLE IF NOT EXISTS notes (
     id SERIAL PRIMARY KEY,
     content TEXT NOT NULL,
-    tags TEXT[],
+    tags TEXT [],
     created_at TIMESTAMP DEFAULT NOW()
-
 );
