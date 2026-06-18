@@ -1,0 +1,16 @@
+# docker-compose.yml
+
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: contextcore
+      POSTGRES_PASSWORD: contextcore
+      POSTGRES_DB: contextcore
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

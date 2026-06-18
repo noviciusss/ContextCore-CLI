@@ -1,0 +1,4 @@
+LangGraph
+groq
+langchain-groq
+python-dotenv
