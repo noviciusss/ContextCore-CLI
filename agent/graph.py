@@ -3,7 +3,7 @@ from langgraph.graph import StateGraph, START,END
 from agent.state import AgentState
 from agent.nodes.responder import responsder
 
-def build_graph(checkpointer=None):
+def build_graph(tools,checkpointer=None):
     # creating a graph that uses agentstate as its state schema
     graph = StateGraph(AgentState)
 
