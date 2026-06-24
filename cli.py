@@ -22,7 +22,7 @@ async def main():
     async with AsyncPostgresSaver.from_conn_string(postgres_url) as checkpointer:
         await checkpointer.setup()
 
-        graph = await build_graph(tools,checkpointer)
+        graph = await build_graph(tools,checkpointer=checkpointer)
         config  = {"configurable": {"thread_id": "session-1"}}
 
         print("ContextCore CLI — type 'exit' to quit")
@@ -31,7 +31,7 @@ async def main():
             if user_input.lower() == "exit":
                 break
             # wrap input as HumanMessage 
-            result = graph.invoke(
+            result = await graph.ainvoke(
                 {
                     "messages": [HumanMessage(content=user_input)]
                 }, config = config)
