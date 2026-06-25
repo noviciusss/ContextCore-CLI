@@ -25,7 +25,7 @@ def register_note_tools(mcp):
         try: 
             with conn.cursor() as curr:
                 curr.execute(
-                    "SELECT * FROM notes WHERE content ILIKE &s ORDER BY created_at DESC",
+                    "SELECT * FROM notes WHERE content ILIKE %s ORDER BY created_at DESC",
                     (f"%{query}%",)
                 )
                 rows = curr.fetchall()

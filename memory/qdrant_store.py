@@ -23,8 +23,7 @@ def ensure_collection():
     if COLLECTION not in existing:
         client.create_collection(
             collection_name = COLLECTION,
-            vector_config = VectorParams(size =VECTOR_SIZE,distance = Distance.COSINE)
-
+            vectors_config = VectorParams(size =VECTOR_SIZE,distance = Distance.COSINE)
         )
 def write_memory(text:str , metadata: dict = {}):
     """Embed a text snippet and store in Qdrant."""
@@ -43,9 +42,9 @@ def search_memory(query:str,top_k : int=3) ->list[str]:
     client = get_client()
     ensure_collection()
     query_vector = embed_text(query)
-    results = client.search(
+    response = client.query_points(
         collection_name = COLLECTION,
-        query_vector = query_vector,
+        query = query_vector,
         limit = top_k
     )
-    return [hit.payload["text"] for hit in results]
+    return [hit.payload["text"] for hit in response.points]

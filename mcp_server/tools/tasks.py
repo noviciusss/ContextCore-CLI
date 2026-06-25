@@ -35,8 +35,8 @@ def register_task_tools(mcp):
         finally:
             conn.close()
     @mcp.tool()
-    def upadate_task(task_id:int,status:str="",priority:str="")->dict:
-        """Update a task's status and/or priotiry by its Id."""
+    def update_task(task_id:int,status:str="",priority:str="")->dict:
+        """Update a task's status and/or priority by its Id."""
         con = get_connection()
         try:
             with con.cursor() as cur:
