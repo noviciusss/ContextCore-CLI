@@ -17,9 +17,9 @@ if __name__ == "__main__":
     from db.connection import init_db
     try:
         init_db()
-        print("Database initialized successfully.")
+        print("Database initialized successfully.", file=sys.stderr)
     except Exception as e:
-        print(f"Warning: Could not auto-initialize database (is PostgreSQL running?): {e}")
+        print(f"Warning: Could not auto-initialize database (is PostgreSQL running?): {e}", file=sys.stderr)
     mcp.run()
 
     

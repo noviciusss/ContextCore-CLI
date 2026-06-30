@@ -3,7 +3,7 @@ from agent.llm import getllm
 
 llm = getllm()
 
-def responsder(state: AgentState)->dict:
-    #state.message comtains full conversation history
-    reponse = llm.invoke(state["messages"])
-    return {"messages": [reponse]}
+def responder(state: AgentState)->dict:
+    #state.message contains full conversation history
+    response = llm.invoke(state["messages"])
+    return {"messages": [response]}
